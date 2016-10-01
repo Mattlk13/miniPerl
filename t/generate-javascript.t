@@ -11,6 +11,8 @@ constant %expectations = (
 'sub { $x }' => '(_ => x)',
 ).hash;
 
+plan %expectations.elems;
+
 for %expectations {
     is compile-to-javascript(.key), .value, "{.key} --> {.value}";
 }

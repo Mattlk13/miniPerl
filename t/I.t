@@ -2,6 +2,8 @@ use v6;
 use Test;
 use miniPerl::I;
 
+plan 16;
+
 ok miniPerl::I.parse($_), "allowing $_" for
 'sub {}',
 'sub {}()',
