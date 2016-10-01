@@ -16,6 +16,7 @@ ok miniPerl::I.parse($_), "allowing $_" for
 ;
 
 nok miniPerl::I.parse($_), "not allowing $_" for
+'f()',
 'sub ($) {}',
 'sub ($x, $y) {}',
 'sub { $^x }',

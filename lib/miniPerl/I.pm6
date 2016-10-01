@@ -5,7 +5,7 @@ rule application { '(' <expression>? ')' }
 rule subroutine { sub [ '(' <variable>? ')' ]? '{' <expression>? '}' }
 rule expression { [ <variable> | <subroutine> ] <application>* }
 
-our constant Actions = class {
+our class Actions {
     method TOP($/) { make $<expression>.ast }
     method variable($/) { make ~$<name>; }
     method application($/) { make "({$<expression>.ast || ''})"; }
@@ -16,3 +16,8 @@ our constant Actions = class {
         make ($<variable>.ast || $<subroutine>.ast) ~ $<application>».ast.join;
     }
 }
+
+method compile(Str $code) {
+    self.parse($code, actions => Actions).ast;
+}
+
