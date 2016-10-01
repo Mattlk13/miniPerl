@@ -1,6 +1,6 @@
 unit module miniPerl;
-use miniPerl::I;
+use yPerl;
 
 sub compile-to-javascript(Str $code) returns Str is export {
-    return miniPerl::I.parse($code).ast.js
+    return yPerl.parse($code).ast.js
 }

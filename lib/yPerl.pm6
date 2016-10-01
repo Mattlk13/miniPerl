@@ -1,4 +1,4 @@
-unit grammar miniPerl::I;
+unit grammar yPerl;
 use λ;
 rule TOP {
     ^^ <term> $$

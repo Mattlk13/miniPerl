@@ -1,8 +1,8 @@
 use v6;
 use Test;
-use miniPerl::I;
+use yPerl;
 
-ok miniPerl::I.parse($_), "allowing $_" for
+ok yPerl.parse($_), "allowing $_" for
 'sub {}',
 '$x()',
 'sub {}()',
@@ -16,7 +16,7 @@ ok miniPerl::I.parse($_), "allowing $_" for
 'sub ($x) { sub ($y) {}($x()) }',
 ;
 
-nok miniPerl::I.parse($_), "not allowing $_" for
+nok yPerl.parse($_), "not allowing $_" for
 'f()',
 'sub ($) {}',
 'sub ($x, $y) {}',
