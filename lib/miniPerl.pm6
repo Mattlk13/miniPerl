@@ -1,6 +1,12 @@
 unit module miniPerl;
 use yPerl;
+use zPerl;
 
 sub compile-to-javascript(Str $code) returns Str is export {
-    return yPerl.parse($code).ast.js
+    return 
+        (
+            False
+            || yPerl.parse($code)
+            || zPerl.parse($code)
+        ).ast.js
 }
