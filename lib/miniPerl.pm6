@@ -7,7 +7,7 @@ sub compile-to-javascript(Str $code) returns Str is export {
             method variable($/) { make ~$<name>; }
             method application($/) { make "({$<expression>.ast || ''})"; }
             method subroutine($/) {
-                make "({$<variable>.ast || '_'} => {$<expression>.ast || 'null'})";
+                make "({$<variable>.ast || '()'} => {$<expression>.ast || 'null'})";
             }
             method expression($/) {
                 make ($<variable>.ast || $<subroutine>.ast) ~ $<application>».ast.join;

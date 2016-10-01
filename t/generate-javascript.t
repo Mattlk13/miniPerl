@@ -3,12 +3,12 @@ use miniPerl;
 
 use Test;
 constant %expectations = (
-'sub {}' => '(_ => null)',
-'sub {}()' => '(_ => null)()',
-'sub {}()()' => '(_ => null)()()',
+'sub {}' => '(() => null)',
+'sub {}()' => '(() => null)()',
+'sub {}()()' => '(() => null)()()',
 'sub ($x) {}' => '(x => null)',
-'sub ($u) { sub {} }' => '(u => (_ => null))',
-'sub { $x }' => '(_ => x)',
+'sub ($u) { sub {} }' => '(u => (() => null))',
+'sub { $x }' => '(() => x)',
 ).hash;
 
 for %expectations {
