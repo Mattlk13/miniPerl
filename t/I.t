@@ -4,6 +4,7 @@ use miniPerl::I;
 
 ok miniPerl::I.parse($_), "allowing $_" for
 'sub {}',
+'$x()',
 'sub {}()',
 'sub { sub {} }()()',
 'sub { }',
