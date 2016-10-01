@@ -10,8 +10,8 @@ ES6 javascript code.
 
     use miniPerl;
 
-    say compile-to-javascript q[sub {}];             # (_ => null)
-    say compile-to-javascript q[sub {}()];           # (_ => null)()
+    say compile-to-javascript q[sub {}];             # () => null
+    say compile-to-javascript q[sub {}()];           # (() => null)()
     say compile-to-javascript q[sub ($x) {}($y)];    # (x => null)(y)
 
     
