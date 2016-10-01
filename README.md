@@ -1,12 +1,12 @@
 miniPerl
 ========
 
-# Description
+## Description
 
 `miniPerl` is a Turing-complete subset of Perl compiling to
 ES6 javascript code.
 
-# Synopsis
+## Synopsis
 
     use miniPerl;
 
