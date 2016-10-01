@@ -1,7 +1,7 @@
 unit module λ;
 role term { method js returns Str { "" } }
 class variable does term {
-    has Str $.name;
+    has Str $.name where /^^<ident>$$/;
     method js { $.name || 'null' }
 }
 class abstraction does term {
