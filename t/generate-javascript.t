@@ -1,5 +1,5 @@
 use v6;
-use miniPerl::I;
+use miniPerl;
 
 use Test;
 constant %expectations = (
@@ -12,7 +12,7 @@ constant %expectations = (
 ).hash;
 
 for %expectations {
-    is miniPerl::I::AST(.key).js, .value, "{.key} --> {.value}";
+    is compile-to-javascript(.key), .value, "{.key} --> {.value}";
 }
 
 done-testing();
