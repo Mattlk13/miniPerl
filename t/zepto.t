@@ -3,6 +3,7 @@ use Test;
 
 ok zPerl.parse($_), "allowing $_" for 
 '1',
+'12345',
 'sub { 0 }',
 'sub ($x) { 6 }',
 '$x($y(12))',
