@@ -13,9 +13,9 @@ should be easily translated to any language supporting functional programming.
 use yPerl;
 
 say compile($_).js for
-q[sub {}],          # () => null
-q[sub {}()],        # (() => null)()
-q[sub ($x) {}($y)]; # (x => null)(y)
+    q[sub {}],          # () => null
+    q[sub {}()],        # (() => null)()
+    q[sub ($x) {}($y)]; # (x => null)(y)
 ```
     
 
