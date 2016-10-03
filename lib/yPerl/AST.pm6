@@ -1,30 +1,30 @@
 unit module yPerl::AST;
 
 our role Node {
-    method js {...}
+    method compile {...}
 }
 
 our class Variable    does Node {
     has Str $.name where /^^<.ident>$$/;
-    method js { ~$!name }
+    method compile { ~$!name }
 }
 our class Abstraction does Node {
     has Variable $.parameter;
     has Node     $.expression;
-    method js {
+    method compile {
         "{
-            $!parameter ?? $!parameter.js !! '()'
+            $!parameter ?? $!parameter.compile !! '()'
         } => {
-            $!expression ?? $!expression.js !! 'null'
+            $!expression ?? $!expression.compile !! 'null'
         }"
     }
 }
 our class Application does Node {
     has Node $.function;
     has Node $.argument;
-    method js {
-        my $jsfunction = $.function.js;
-        $jsfunction = "($jsfunction)" if $!function ~~ Abstraction;
-        "{$jsfunction}({$!argument ?? $!argument.js !! ''})";
+    method compile {
+        my $compiled-function = $.function.compile;
+        $compiled-function = "($compiled-function)" if $!function ~~ Abstraction;
+        "{$compiled-function}({$!argument ?? $!argument.compile !! ''})";
     }
 }
