@@ -28,7 +28,7 @@ nok yPerl::Grammar.parse($_), "not allowing $_" for
 'sub {}; sub {}();'
 ;
 
-is yPerl::parse(.key).compile, .value, "{.key} --> {.value}" for
+is yPerl::compile(.key), .value, "{.key} --> {.value}" for
 'sub {}' => '() => null',
 'sub {}()' => '(() => null)()',
 'sub {}()()' => '(() => null)()()',
