@@ -20,8 +20,7 @@ our class Abstraction does Node {
     }
 }
 our class Application does Node {
-    has Node $.function;
-    has Node $.argument;
+    has Node ($.function, $.argument);
     method compile {
         my $compiled-function = $.function.compile;
         $compiled-function = "($compiled-function)" if $!function ~~ Abstraction;
