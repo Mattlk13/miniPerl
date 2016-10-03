@@ -9,10 +9,12 @@ should be easily translated to any language supporting functional programming.
 
 ## Synopsis
 
-    use yPerl;
+```Perl6
+use yPerl;
 
-    say compile($_).js
-        for q[sub {}], q[sub {}()], q[sub ($x) {}($y)];
+say compile($_).js
+    for q[sub {}], q[sub {}()], q[sub ($x) {}($y)];
+```
     
 
     
