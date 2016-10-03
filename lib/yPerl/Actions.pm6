@@ -1,7 +1,7 @@
 unit class yPerl::Actions;
 use yPerl::AST;
 
-method TOP($/) returns yPerl::AST::Term { make $<term>.ast }
+method TOP($/) returns yPerl::AST::Node { make $<term>.ast }
 
 method variable($/) returns yPerl::AST::Variable { make yPerl::AST::Variable.new: :name(~$<ident>) }
 method abstraction($/) returns yPerl::AST::Abstraction {
@@ -10,9 +10,9 @@ method abstraction($/) returns yPerl::AST::Abstraction {
     |(:expression($<expression>.ast) if $<expression>),
     ;
 }
-method call($/) returns yPerl::AST::Term { make $<term> ?? $<term>.ast !! yPerl::AST::Term }
+method call($/) returns yPerl::AST::Node { make $<term> ?? $<term>.ast !! yPerl::AST::Node }
 
-method term($/) returns yPerl::AST::Term {
+method term($/) returns yPerl::AST::Node {
     my $function = ($<variable> || $<abstraction>).ast;
     make $function unless $<call>;
     make reduce -> $t, $s {

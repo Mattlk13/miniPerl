@@ -1,16 +1,16 @@
 unit module yPerl::AST;
 
-our role Term {
+our role Node {
     method js {...}
 }
 
-our class Variable    does Term {
+our class Variable    does Node {
     has Str $.name where /^^<.ident>$$/;
     method js { ~$!name }
 }
-our class Abstraction does Term {
+our class Abstraction does Node {
     has Variable $.parameter;
-    has Term     $.expression;
+    has Node     $.expression;
     method js {
         "{
             $!parameter ?? $!parameter.js !! '()'
@@ -19,9 +19,9 @@ our class Abstraction does Term {
         }"
     }
 }
-our class Application does Term {
-    has Term $.function;
-    has Term $.argument;
+our class Application does Node {
+    has Node $.function;
+    has Node $.argument;
     method js {
         my $jsfunction = $.function.js;
         $jsfunction = "($jsfunction)" if $!function ~~ Abstraction;
