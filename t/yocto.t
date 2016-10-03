@@ -4,6 +4,7 @@ use yPerl;
 
 ok yPerl::Grammar.parse($_), "allowing $_" for
 'sub {}',
+"sub \{\n\}",
 '$x()',
 'sub {}()',
 'sub { sub {} }()()',
