@@ -11,7 +11,7 @@ should be easily translated to any language supporting functional programming.
 
     use yPerl;
 
-    say compile($_).generate-js
+    say compile($_).js
         for q[sub {}], q[sub {}()], q[sub ($x) {}($y)];
     
 
