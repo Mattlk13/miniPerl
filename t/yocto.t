@@ -1,8 +1,8 @@
 use v6;
 use Test;
-use yPerl;
+use yPerl::Grammar;
 
-ok yPerl.parse($_), "allowing $_" for
+ok yPerl::Grammar.parse($_), "allowing $_" for
 'sub {}',
 '$x()',
 'sub {}()',
@@ -16,7 +16,7 @@ ok yPerl.parse($_), "allowing $_" for
 'sub ($x) { sub ($y) {}($x()) }',
 ;
 
-nok yPerl.parse($_), "not allowing $_" for
+nok yPerl::Grammar.parse($_), "not allowing $_" for
 'f()',
 'sub ($) {}',
 'sub ($x, $y) {}',
