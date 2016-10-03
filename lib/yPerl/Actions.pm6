@@ -6,8 +6,8 @@ method TOP($/) returns yPerl::AST::Term { make $<term>.ast }
 method variable($/) returns yPerl::AST::Variable { make yPerl::AST::Variable.new: :name(~$<ident>) }
 method abstraction($/) returns yPerl::AST::Abstraction {
     make yPerl::AST::Abstraction.new: 
-    |(:$<parameter> if $<parameter>),
-    |(:$<expression> if $<expression>),
+    |(:parameter($<parameter>.ast) if $<parameter>),
+    |(:expression($<expression>.ast) if $<expression>),
     ;
 }
 method call($/) returns yPerl::AST::Term { make $<term> ?? $<term>.ast !! yPerl::AST::Term }
