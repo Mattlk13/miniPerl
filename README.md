@@ -12,7 +12,7 @@ should be easily translated to any language supporting functional programming.
 ```Perl6
 use yPerl;
 
-say yPerl::parse($_).compile for
+say yPerl::compile($_) for
     q[sub {}],          # () => null
     q[sub {}()],        # (() => null)()
     q[sub ($x) {}($y)]; # (x => null)(y)
