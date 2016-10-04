@@ -12,6 +12,6 @@ our class Abstraction does ASTNode {
 our class Application does ASTNode {
     has ASTNode ($.function, $.argument);
     multi method gist {
-        "({$!function.gist} {$!argument.gist})"
+        "({$!function.gist} {$!argument ?? $!argument.gist !! '()'})"
     }
 }

@@ -15,6 +15,8 @@ multi compile(Str $code) { compile(parse($code)) }
 multi compile(ASTNode $node) { $node }
 multi compile(zPerl::AST::Cons $cons) {
     yPerl::AST::Application.new:
-    function => compile($cons.cdr),
+    function => (yPerl::AST::Abstraction.new:
+        expression => compile($cons.cdr),
+    ),
     argument => compile($cons.car);
 }
