@@ -17,7 +17,7 @@ stored as [Cons](https://en.wikipedia.org/wiki/Cons).  `zPerl` compiles into
 
 A `Cons` is turned into a lambda-expression as such:
 
-    (car cdr) -> ((λ·cdr) car)
+    [car cdr] -> ((λ·cdr) car)
 
 ## Synopsis
 
