@@ -4,7 +4,7 @@ rule TOP { ^^ <term> $$ }
 
 token variable { \$<ident> }
 rule abstraction {
-    sub [\( <parameter=variable>? \)]? \{ <expression=term>? \}
+    sub [\( <parameter=.variable>? \)]? \{ <expression=.term>? \}
 }
 
 rule call { \(<term>?\) }

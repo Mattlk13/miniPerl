@@ -1,7 +1,8 @@
 unit module yPerl;
 use yPerl::AST;
+use ASTNode;
 
-our sub parse(Str $code) returns yPerl::AST::Node {
+our sub parse(Str $code) returns ASTNode {
     use yPerl::Grammar;
     use yPerl::Actions;
     yPerl::Grammar.parse($code, actions => yPerl::Actions).ast
